@@ -21,6 +21,13 @@ class Event {
   String toString() {
     return 'Event{type: $type, data: $data}';
   }
+
+  String toJson() {
+    return jsonEncode({
+      "type": type,
+      "data": data,
+    });
+  }
 }
 
 class Api_EventLogIn extends Event {
@@ -44,17 +51,45 @@ class Api_EventLogIn extends Event {
 }
 
 class App_EventLogIn extends Event {
-  String login = "";
+  String email = "";
   String password = "";
 
   App_EventLogIn({
-    this.login = "",
+    this.email = "",
     this.password = "",
   }) {
-    type = "App_EventLogIn";
+    type = "App_LogIn";
     data = {
-      "login": login,
+      "email": email,
       "password": password,
+    };
+  }
+}
+
+class App_EventRegister extends Event {
+  String email;
+  String password;
+  String firstName;
+  String lastName;
+  String patronymic;
+  String token;
+
+  App_EventRegister({
+    this.email = "",
+    this.password = "",
+    this.firstName = "",
+    this.lastName = "",
+    this.patronymic = "",
+    this.token = "",
+  }) {
+    type = 'App_Register';
+    data = {
+      "firstName": firstName,
+      "lastName": lastName,
+      "patronymic": patronymic,
+      "email": email,
+      "password": password,
+      "token": token,
     };
   }
 }

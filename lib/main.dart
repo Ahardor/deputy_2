@@ -1,10 +1,15 @@
 import 'dart:io';
+import 'package:bot_toast/bot_toast.dart';
 import 'package:deputy_2/connector.dart';
 import 'package:deputy_2/forgot.dart';
-import 'package:deputy_2/log_in.dart';
-import 'package:deputy_2/parameters.dart';
-import 'package:deputy_2/register.dart';
+import 'package:deputy_2/home/home.dart';
+import 'package:deputy_2/home/home_m.dart';
+import 'package:deputy_2/register/register_m.dart';
+import 'package:deputy_2/sign_in/sign_in.dart';
+import 'package:deputy_2/register/register.dart';
+import 'package:deputy_2/sign_in/sign_in_m.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -18,7 +23,7 @@ class MyHttpOverrides extends HttpOverrides {
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
-  await WebSocketManager.init();
+  WebSocketManager.init();
   runApp(const MainApp());
 }
 
@@ -38,12 +43,24 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: BotToastInit(),
+      navigatorObservers: [BotToastNavigatorObserver()],
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
+      initialRoute: '/signIn',
       routes: {
-        '/login': (context) => const LogInPage(),
-        '/register': (context) => const RegisterPage(),
+        '/signIn': (context) => BlocProvider(
+              create: (_) => SignInManager(),
+              child: const SignInPage(),
+            ),
+        '/register': (context) => BlocProvider(
+              create: (_) => RegisterManager(),
+              child: const RegisterPage(),
+            ),
         '/forgot': (context) => const ForgotPage(),
+        '/home': (context) => BlocProvider(
+              create: (_) => HomePageManager(),
+              child: const HomePage(),
+            )
       },
       theme: ThemeData(
         appBarTheme: const AppBarTheme(

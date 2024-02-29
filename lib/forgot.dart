@@ -33,10 +33,14 @@ class _ForgotPageState extends State<ForgotPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              textAlign: TextAlign.center,
-              style: TextStyle(color: AppColors.mainColor),
-              decoration: logInField(hint: "Почта"),
+            const SizedBox(width: double.infinity),
+            Container(
+              constraints: const BoxConstraints(maxWidth: 600),
+              child: TextField(
+                textAlign: TextAlign.center,
+                style: TextStyle(color: AppColors.mainColor),
+                decoration: logInField(hint: "Почта"),
+              ),
             ),
             const SizedBox(
               height: 10,

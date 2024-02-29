@@ -3,15 +3,16 @@ library connector;
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:bot_toast/bot_toast.dart';
 import 'package:deputy_2/event.dart';
 import 'package:flutter/material.dart';
 
 class WebSocketManager {
   static WebSocket? ws;
 
-  static final Map<String, List<Function>> _handlers = {};
+  static final Map<String, List<Function(Event)>> _handlers = {};
 
-  static addHandler(String event, Function handler) {
+  static addHandler(String event, Function(Event) handler) {
     if (_handlers.containsKey(event)) {
       _handlers[event]!.add(handler);
     } else {
@@ -44,7 +45,14 @@ class WebSocketManager {
       debugPrint("Error while connecting to server");
     } else {
       debugPrint("Successfully connected to server");
+      BotToast.showText(text: "Соединение с сервером установлено");
     }
+
+    ws?.done.then((value) {
+      BotToast.showText(
+          text: "Потеряно соединение с сервером, идёт восстановление");
+      WebSocketManager.init();
+    });
 
     ws?.listen(readMessages);
   }
@@ -62,8 +70,8 @@ class WebSocketManager {
     }
   }
 
-  static void writeMessage(String event, dynamic data) {
-    debugPrint('{"type": "$event","data": ${jsonEncode(data)}}');
-    ws?.add('{"type": "$event","data": ${jsonEncode(data)}}');
+  static void writeMessage(Event event) {
+    debugPrint(event.toString());
+    ws?.add(event.toJson());
   }
 }
