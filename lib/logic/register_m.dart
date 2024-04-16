@@ -35,18 +35,24 @@ class RegisterManager extends Cubit<RegisterState> {
     required String email,
     required String password,
     required String passwordConfirm,
-    required String firstName,
-    required String lastName,
-    String patronymic = "",
+    required String name,
     String token = "",
   }) {
+    var split = name.split(' ');
+    String firstName = split.isNotEmpty ? split[0] : "";
+    String lastName = split.length > 1 ? split[1] : "";
+    String patronymic = split.length > 2 ? split[2] : "";
+
+    var emailRegEx =
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
+
     bool allow = firstName != '' &&
         lastName != '' &&
-        patronymic != '' &&
         email != '' &&
         password != '' &&
         passwordConfirm != '' &&
-        password == passwordConfirm;
+        password == passwordConfirm &&
+        RegExp(emailRegEx).hasMatch(email);
 
     if (allow) {
       WebSocketManager.writeMessage(

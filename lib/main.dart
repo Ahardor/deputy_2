@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:deputy_2/connection/connector.dart';
+import 'package:deputy_2/parameters.dart';
 import 'package:deputy_2/view/forgot.dart';
 import 'package:deputy_2/view/home.dart';
 import 'package:deputy_2/logic/home_m.dart';
@@ -63,11 +64,13 @@ class _MainAppState extends State<MainApp> {
             )
       },
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           centerTitle: true,
           toolbarHeight: 80,
+          foregroundColor: AppColors.secondColor,
         ),
         fontFamily: "Nunito",
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.mainColor),
       ),
     );
   }

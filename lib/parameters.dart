@@ -3,7 +3,11 @@ library parameters;
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static final mainColor = getMaterialColor(Color(0xFF2A2654));
+  static final mainColor = getMaterialColor(Color(0xFF006832));
+  static final secondColor = getMaterialColor(Color(0xFF004933));
+  static final lightColor = getMaterialColor(Color(0xFFbfffec));
+  static final backColor = getMaterialColor(Color(0xFFfffbfc));
+  static final accentColor = getMaterialColor(Color(0xFF628395));
 }
 
 MaterialColor getMaterialColor(Color color) {
@@ -27,19 +31,24 @@ MaterialColor getMaterialColor(Color color) {
   return MaterialColor(color.value, shades);
 }
 
-InputDecoration logInField({String hint = ""}) {
+InputDecoration logInField({String hint = "", IconData icon = Icons.abc}) {
   return InputDecoration(
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(100),
+    enabledBorder: UnderlineInputBorder(
+      // borderRadius: BorderRadius.circular(100),
       borderSide: BorderSide(
         width: 0.7,
         color: AppColors.mainColor,
       ),
     ),
     hintText: hint,
+    prefixIcon: Icon(
+      icon,
+      color: AppColors.secondColor,
+      size: 30,
+    ),
     hintStyle: TextStyle(color: AppColors.mainColor.shade300),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(100),
+      // borderRadius: BorderRadius.circular(100),
       borderSide: BorderSide(
         width: 1.5,
         color: AppColors.mainColor,

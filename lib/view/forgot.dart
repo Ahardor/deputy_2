@@ -37,13 +37,14 @@ class _ForgotPageState extends State<ForgotPage> {
             Container(
               constraints: const BoxConstraints(maxWidth: 600),
               child: TextField(
-                textAlign: TextAlign.center,
+                textAlignVertical: TextAlignVertical.center,
                 style: TextStyle(color: AppColors.mainColor),
-                decoration: logInField(hint: "Почта"),
+                decoration:
+                    logInField(hint: "Почта", icon: Icons.email_outlined),
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 40,
             ),
             SizedBox(
               width: 150,
@@ -53,12 +54,13 @@ class _ForgotPageState extends State<ForgotPage> {
                   backgroundColor:
                       MaterialStateProperty.all(AppColors.mainColor),
                   padding: MaterialStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 20)),
+                      const EdgeInsets.symmetric(vertical: 15)),
                 ),
                 child: const Text(
                   "Восстановить",
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 16,
                   ),
                 ),
               ),

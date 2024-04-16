@@ -54,102 +54,104 @@ class _SignInPageState extends State<SignInPage> {
         body: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                constraints: const BoxConstraints(maxWidth: 600),
-                child: TextField(
-                  controller: _emailCtrl,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Почта"),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                constraints: const BoxConstraints(maxWidth: 600),
-                child: TextField(
-                  controller: _passCtrl,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Пароль"),
-                  obscureText: true,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 150,
-                child: ElevatedButton(
-                  onPressed: () => context
-                      .read<SignInManager>()
-                      .signIn(_emailCtrl.text, _passCtrl.text),
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColors.mainColor),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(vertical: 20)),
-                  ),
-                  child: const Text(
-                    "Войти",
-                    style: TextStyle(
-                      color: Colors.white,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      constraints: const BoxConstraints(maxWidth: 600),
+                      child: TextField(
+                        controller: _emailCtrl,
+                        textAlignVertical: TextAlignVertical.center,
+                        style: TextStyle(color: AppColors.mainColor),
+                        decoration: logInField(
+                            hint: "Почта", icon: Icons.email_outlined),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      constraints: const BoxConstraints(maxWidth: 600),
+                      child: TextField(
+                        controller: _passCtrl,
+                        style: TextStyle(color: AppColors.mainColor),
+                        textAlignVertical: TextAlignVertical.center,
+                        decoration: logInField(
+                            hint: "Пароль", icon: Icons.lock_outline),
+                        obscureText: true,
+                      ),
+                    ),
+                    TextButton(
                       onPressed: () =>
                           Navigator.of(context).pushNamed('/forgot'),
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(AppColors.mainColor),
-                        padding: MaterialStateProperty.all(
-                            const EdgeInsets.symmetric(vertical: 20)),
-                      ),
-                      child: const Text(
-                        "Забыли пароль",
-                        style: TextStyle(
-                          color: Colors.white,
+                      child: Text("Забыли пароль?"),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          onPressed: () => context
+                              .read<SignInManager>()
+                              .signIn(_emailCtrl.text, _passCtrl.text),
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(AppColors.mainColor),
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.symmetric(vertical: 15)),
+                          ),
+                          child: Text.rich(
+                            TextSpan(
+                              text: "Войти",
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 18),
+                              children: [
+                                WidgetSpan(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Icon(
+                                      Icons.arrow_forward_rounded,
+                                      color: AppColors.backColor,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
-                      onPressed: () =>
-                          Navigator.of(context).pushNamed('/register'),
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(AppColors.mainColor),
-                        padding: MaterialStateProperty.all(
-                            const EdgeInsets.symmetric(vertical: 20)),
-                      ),
-                      child: const Text(
-                        "Регистрация",
-                        style: TextStyle(
-                          color: Colors.white,
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text.rich(
+                TextSpan(
+                  text: "Нет аккаунта? ",
+                  style: TextStyle(fontSize: 16),
+                  children: [
+                    WidgetSpan(
+                      alignment: PlaceholderAlignment.middle,
+                      child: TextButton(
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed('/register'),
+                        child: const Text(
+                          "Регистрация",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              )
+                  ],
+                ),
+              ),
             ],
           ),
         ),

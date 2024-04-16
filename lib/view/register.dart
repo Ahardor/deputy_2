@@ -12,9 +12,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final _firstNameCtrl = TextEditingController();
-  final _lastNameCtrl = TextEditingController();
-  final _patronymicCtrl = TextEditingController();
+  final _nameCtrl = TextEditingController();
   final _emailCtrl = TextEditingController();
   final _passCtrl = TextEditingController();
   final _confPassCtrl = TextEditingController();
@@ -63,76 +61,55 @@ class _RegisterPageState extends State<RegisterPage> {
               Container(
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: TextField(
-                  controller: _firstNameCtrl,
-                  textAlign: TextAlign.center,
+                  controller: _nameCtrl,
+                  textAlignVertical: TextAlignVertical.center,
                   style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Имя"),
+                  decoration: logInField(hint: "ФИО", icon: Icons.person),
                 ),
               ),
               const SizedBox(
-                height: 10,
-              ),
-              Container(
-                constraints: const BoxConstraints(maxWidth: 600),
-                child: TextField(
-                  controller: _lastNameCtrl,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Фамилия"),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                constraints: const BoxConstraints(maxWidth: 600),
-                child: TextField(
-                  controller: _patronymicCtrl,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Отчество"),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Container(
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: TextField(
                   controller: _emailCtrl,
-                  textAlign: TextAlign.center,
+                  textAlignVertical: TextAlignVertical.center,
                   style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Почта"),
+                  decoration:
+                      logInField(hint: "Почта", icon: Icons.email_outlined),
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Container(
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: TextField(
                   controller: _passCtrl,
-                  textAlign: TextAlign.center,
+                  textAlignVertical: TextAlignVertical.center,
                   style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Пароль"),
+                  decoration:
+                      logInField(hint: "Пароль", icon: Icons.lock_outline),
                   obscureText: true,
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Container(
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: TextField(
                   controller: _confPassCtrl,
-                  textAlign: TextAlign.center,
+                  textAlignVertical: TextAlignVertical.center,
                   style: TextStyle(color: AppColors.mainColor),
-                  decoration: logInField(hint: "Подтверждение пароля"),
+                  decoration: logInField(
+                      hint: "Подтверждение пароля", icon: Icons.lock),
                   obscureText: true,
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 40,
               ),
               SizedBox(
                 width: 150,
@@ -141,20 +118,19 @@ class _RegisterPageState extends State<RegisterPage> {
                         email: _emailCtrl.text,
                         password: _passCtrl.text,
                         passwordConfirm: _confPassCtrl.text,
-                        firstName: _firstNameCtrl.text,
-                        lastName: _lastNameCtrl.text,
-                        patronymic: _patronymicCtrl.text,
+                        name: _nameCtrl.text,
                       ),
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(AppColors.mainColor),
                     padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(vertical: 20)),
+                        const EdgeInsets.symmetric(vertical: 15)),
                   ),
                   child: const Text(
                     "Регистрация",
                     style: TextStyle(
                       color: Colors.white,
+                      fontSize: 16,
                     ),
                   ),
                 ),

@@ -2,6 +2,8 @@
 
 import 'dart:convert';
 
+import 'package:crypto/crypto.dart';
+
 class Event {
   String type = "";
   Map<String, dynamic>? data = {};
@@ -61,7 +63,7 @@ class App_EventLogIn extends Event {
     type = "App_LogIn";
     data = {
       "email": email,
-      "password": password,
+      "password": sha256.convert(password.codeUnits).toString(),
     };
   }
 }
@@ -88,7 +90,7 @@ class App_EventRegister extends Event {
       "lastName": lastName,
       "patronymic": patronymic,
       "email": email,
-      "password": password,
+      "password": sha256.convert(password.codeUnits).toString(),
       "token": token,
     };
   }
