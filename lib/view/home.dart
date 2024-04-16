@@ -1,4 +1,4 @@
-import 'package:deputy_2/home/home_m.dart';
+import 'package:deputy_2/logic/home_m.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

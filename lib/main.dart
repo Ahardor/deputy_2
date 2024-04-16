@@ -1,13 +1,13 @@
 import 'dart:io';
 import 'package:bot_toast/bot_toast.dart';
-import 'package:deputy_2/connector.dart';
-import 'package:deputy_2/forgot.dart';
-import 'package:deputy_2/home/home.dart';
-import 'package:deputy_2/home/home_m.dart';
-import 'package:deputy_2/register/register_m.dart';
-import 'package:deputy_2/sign_in/sign_in.dart';
-import 'package:deputy_2/register/register.dart';
-import 'package:deputy_2/sign_in/sign_in_m.dart';
+import 'package:deputy_2/connection/connector.dart';
+import 'package:deputy_2/view/forgot.dart';
+import 'package:deputy_2/view/home.dart';
+import 'package:deputy_2/logic/home_m.dart';
+import 'package:deputy_2/logic/register_m.dart';
+import 'package:deputy_2/view/sign_in.dart';
+import 'package:deputy_2/view/register.dart';
+import 'package:deputy_2/logic/sign_in_m.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

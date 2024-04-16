@@ -1,6 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:deputy_2/connector.dart';
-import 'package:deputy_2/event.dart';
+import 'package:deputy_2/connection/connector.dart';
+import 'package:deputy_2/connection/event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterState {

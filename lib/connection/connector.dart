@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bot_toast/bot_toast.dart';
-import 'package:deputy_2/event.dart';
+import 'package:deputy_2/connection/event.dart';
 import 'package:flutter/material.dart';
 
 class WebSocketManager {
