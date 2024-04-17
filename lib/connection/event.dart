@@ -3,6 +3,8 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
+import 'package:deputy_2/connection/types.dart';
+import 'package:deputy_2/parameters.dart';
 
 class Event {
   String type = "";
@@ -29,26 +31,6 @@ class Event {
       "type": type,
       "data": data,
     });
-  }
-}
-
-class Api_EventLogIn extends Event {
-  String firstName = "";
-  String lastName = "";
-  String patronymic = "";
-  int id = 0;
-  String token = "";
-  String role = "";
-
-  Api_EventLogIn.parse(Event event) {
-    type = event.type;
-    data = event.data;
-    firstName = data == null ? "" : data!["firstName"];
-    lastName = data == null ? "" : data!["lastName"];
-    patronymic = data == null ? "" : data!["patronymic"];
-    id = data == null ? "" : data!["id"];
-    token = data == null ? "" : data!["token"];
-    role = data == null ? "" : data!["role"];
   }
 }
 
@@ -92,6 +74,48 @@ class App_EventRegister extends Event {
       "email": email,
       "password": sha256.convert(password.codeUnits).toString(),
       "token": token,
+    };
+  }
+}
+
+class App_EventGetChat extends Event {
+  String chat;
+
+  App_EventGetChat({
+    required this.chat,
+  }) {
+    type = 'App_GetChat';
+    data = {
+      "chatID": chat,
+    };
+  }
+}
+
+class App_EventGetChats extends Event {
+  List<String> chats;
+
+  App_EventGetChats({
+    required this.chats,
+  }) {
+    type = 'App_GetChats';
+    data = {
+      "chatIDs": chats,
+    };
+  }
+}
+
+class App_EventSendMessage extends Event {
+  Message msg;
+
+  App_EventSendMessage({
+    required this.msg,
+  }) {
+    type = 'App_SendMessage';
+    data = {
+      "chatID": msg.chatID,
+      "text": msg.text,
+      "senderID": msg.sender,
+      "date": formatDateTime(msg.date!),
     };
   }
 }

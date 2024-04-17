@@ -83,10 +83,34 @@ class _SignInPageState extends State<SignInPage> {
                         obscureText: true,
                       ),
                     ),
-                    TextButton(
-                      onPressed: () =>
-                          Navigator.of(context).pushNamed('/forgot'),
-                      child: Text("Забыли пароль?"),
+                    Row(
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                              side: BorderSide(
+                                  color: AppColors.mainColor, width: 2),
+                              value: context
+                                  .watch<SignInManager>()
+                                  .state
+                                  .rememberMe,
+                              onChanged: (value) => context
+                                  .read<SignInManager>()
+                                  .rememberMe(value!),
+                              activeColor: AppColors.mainColor,
+                            ),
+                            Text("Запомнить меня",
+                                style: TextStyle(
+                                    fontSize: 14, color: AppColors.mainColor)),
+                          ],
+                        ),
+                        const Spacer(),
+                        TextButton(
+                          onPressed: () =>
+                              Navigator.of(context).pushNamed('/forgot'),
+                          child: Text("Забыли пароль?"),
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       height: 40,

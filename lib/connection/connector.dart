@@ -5,6 +5,7 @@ import 'dart:io';
 
 import 'package:bot_toast/bot_toast.dart';
 import 'package:deputy_2/connection/event.dart';
+import 'package:deputy_2/parameters.dart';
 import 'package:flutter/material.dart';
 
 class WebSocketManager {
@@ -48,12 +49,27 @@ class WebSocketManager {
       BotToast.showText(text: "Соединение с сервером установлено");
     }
 
+    if (_handlers.containsKey("onConnected") &&
+        _handlers["onConnected"]!.isNotEmpty) {
+      for (var handler in _handlers["onConnected"]!) {
+        handler(Event(type: "onConnected"));
+      }
+    } else {
+      debugPrint("Unhandled event type: ${"onConnected"}");
+    }
+
     ws?.listen(
       readMessages,
       onDone: () {
         debugPrint("Connection closed");
         BotToast.showText(
             text: "Потеряно соединение с сервером, идёт восстановление");
+
+        Navigator.of(navigatorKey.currentContext!)
+            .popUntil((route) => route.isFirst);
+        Navigator.of(navigatorKey.currentContext!)
+            .pushNamedAndRemoveUntil('/signIn', (route) => false);
+
         WebSocketManager.init();
       },
       onError: (e) => debugPrint(e.toString()),

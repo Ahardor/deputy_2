@@ -1,6 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:deputy_2/connection/connector.dart';
 import 'package:deputy_2/connection/event.dart';
+import 'package:deputy_2/parameters.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterState {
@@ -42,9 +43,6 @@ class RegisterManager extends Cubit<RegisterState> {
     String firstName = split.isNotEmpty ? split[0] : "";
     String lastName = split.length > 1 ? split[1] : "";
     String patronymic = split.length > 2 ? split[2] : "";
-
-    var emailRegEx =
-        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 
     bool allow = firstName != '' &&
         lastName != '' &&
