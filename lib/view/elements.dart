@@ -83,7 +83,7 @@ class MessageCard extends StatelessWidget {
           alignment: Alignment.bottomRight,
           children: [
             Padding(
-              padding: message.text.length > 50
+              padding: message.text.length > 50 || message.text.contains('\n')
                   ? const EdgeInsets.only(bottom: 20)
                   : EdgeInsets.only(
                       right: message.sender == currentUser.id ? 60 : 40),
