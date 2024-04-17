@@ -8,6 +8,9 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 late User currentUser;
 
+// String ip = "wss://192.168.1.109:3007/ws";
+String ip = "wss://213.226.125.231:3007/ws";
+
 Map<String, Chat> allChats = {};
 
 var emailRegEx =

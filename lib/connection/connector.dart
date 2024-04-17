@@ -40,8 +40,7 @@ class WebSocketManager {
   }
 
   static Future init() async {
-    ws = await WebSocket.connect("wss://192.168.1.109:3000/ws",
-        headers: {"Origin": "allowed"});
+    ws = await WebSocket.connect(ip, headers: {"Origin": "allowed"});
     if (ws == null) {
       debugPrint("Error while connecting to server");
     } else {
