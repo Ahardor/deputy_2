@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "918422198087",
+    "project_id": "deputy-640fb",
+    "storage_bucket": "deputy-640fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918422198087:android:1515b472757fb092049e62",
+        "android_client_info": {
+          "package_name": "com.example.deputy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918422198087-e6na0vqtltj4ujkg2c2jgqakschlhodp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8sOmX7S6bZnadgKpYGLfiRdmdEitcIQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918422198087-e6na0vqtltj4ujkg2c2jgqakschlhodp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "918422198087-8cno8shsgd3lta6fhglta1m6m6sfbi0v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.deputy.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918422198087:android:6b11f435f47f6968049e62",
+        "android_client_info": {
+          "package_name": "com.example.deputy_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918422198087-e6na0vqtltj4ujkg2c2jgqakschlhodp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8sOmX7S6bZnadgKpYGLfiRdmdEitcIQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918422198087-e6na0vqtltj4ujkg2c2jgqakschlhodp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "918422198087-8cno8shsgd3lta6fhglta1m6m6sfbi0v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.deputy.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918422198087:android:80b7d8093b6f62c5049e62",
+        "android_client_info": {
+          "package_name": "org.rockus.deputy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918422198087-e6na0vqtltj4ujkg2c2jgqakschlhodp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8sOmX7S6bZnadgKpYGLfiRdmdEitcIQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918422198087-e6na0vqtltj4ujkg2c2jgqakschlhodp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "918422198087-8cno8shsgd3lta6fhglta1m6m6sfbi0v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.deputy.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

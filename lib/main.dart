@@ -11,6 +11,7 @@ import 'package:deputy_2/logic/register_m.dart';
 import 'package:deputy_2/view/sign_in.dart';
 import 'package:deputy_2/view/register.dart';
 import 'package:deputy_2/logic/sign_in_m.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,6 +30,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   settings = await SharedPreferences.getInstance();
+
+  // Firebase.initializeApp();
+
+  // final notificationSettings =
+  //     await FirebaseMessaging.instance.requestPermission(provisional: true);
+
+  // final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
+  // if (apnsToken != null) {
+  //   print(apnsToken);
+  // }
 
   runApp(const MainApp());
 }

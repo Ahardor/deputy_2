@@ -99,7 +99,7 @@ class _SignInPageState extends State<SignInPage> {
                                   .rememberMe(value!),
                               activeColor: AppColors.mainColor,
                             ),
-                            Text("Запомнить меня",
+                            Text("Запомнить",
                                 style: TextStyle(
                                     fontSize: 14, color: AppColors.mainColor)),
                           ],
@@ -108,7 +108,7 @@ class _SignInPageState extends State<SignInPage> {
                         TextButton(
                           onPressed: () =>
                               Navigator.of(context).pushNamed('/forgot'),
-                          child: Text("Забыли пароль?"),
+                          child: const Text("Забыли?"),
                         ),
                       ],
                     ),
